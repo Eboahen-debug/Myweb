@@ -11,13 +11,12 @@ header { background:#111; color:white; padding:15px; text-align:center; }
 .card img { width:100%; border-radius:10px; }
 .card:hover { transform: scale(1.05); transition:0.3s; }
 h3 { margin:10px 0 5px; }
-.btn { display:block; text-align:center; background:#25D366; color:white; padding:10px; border-radius:5px; text-decoration:none; margin-top:10px; }
-.cart-btn { background:#ff9900; }
-.search { width:90%; margin:10px auto; display:block; padding:10px; border-radius:5px; border:1px solid #ccc; }
+.btn { display:block; text-align:center; background:#ff9900; color:white; padding:10px; border-radius:5px; text-decoration:none; margin-top:10px; border:none; }
+.checkout { background:#25D366; }
 .cart { position:fixed; top:10px; right:10px; background:black; color:white; padding:10px; border-radius:5px; }
+.search { width:90%; margin:10px auto; display:block; padding:10px; border-radius:5px; border:1px solid #ccc; }
 </style><script>
 let cart = [];
-
 function searchPhones() {
  let input = document.getElementById('search').value.toLowerCase();
  let cards = document.getElementsByClassName('card');
@@ -26,49 +25,35 @@ function searchPhones() {
  cards[i].style.display = title.includes(input) ? "block" : "none";
  }
 }
-
 function addToCart(name, price) {
  cart.push({name, price});
  updateCart();
 }
-
 function updateCart() {
  let total = cart.reduce((sum, item) => sum + item.price, 0);
  document.getElementById('cart').innerText = "Cart: " + cart.length + " items | GHS " + total;
 }
-
 function checkout() {
  let message = "Order Details:%0A";
  cart.forEach(item => {
  message += item.name + " - GHS " + item.price + "%0A";
  });
- window.open("https://wa.me/233XXXXXXXXX?text=" + message);
+ window.open("https://wa.me/233547558563?text=" + message);
 }
 </script></head>
 <body><header>
 <h1>Emmanuel Phone Shop</h1>
-<p>Online Store - Order Instantly</p>
-</header><div id="cart" class="cart">Cart: 0 items</div><input type="text" id="search" class="search" placeholder="Search phones..." onkeyup="searchPhones()"><div class="container"><div class="card">
-<img src="https://via.placeholder.com/300">
-<h3>iPhone 11</h3>
-<p>GHS 2500</p>
-<button class="btn cart-btn" onclick="addToCart('iPhone 11', 2500)">Add to Cart</button>
-</div><div class="card">
-<img src="https://via.placeholder.com/300">
-<h3>iPhone 13</h3>
-<p>GHS 4500</p>
-<button class="btn cart-btn" onclick="addToCart('iPhone 13', 4500)">Add to Cart</button>
-</div><div class="card">
-<img src="https://via.placeholder.com/300">
-<h3>Samsung Galaxy A14</h3>
-<p>GHS 1800</p>
-<button class="btn cart-btn" onclick="addToCart('Samsung A14', 1800)">Add to Cart</button>
-</div><div class="card">
-<img src="https://via.placeholder.com/300">
-<h3>Samsung Galaxy A54</h3>
-<p>GHS 3200</p>
-<button class="btn cart-btn" onclick="addToCart('Samsung A54', 3200)">Add to Cart</button>
-</div></div><div style="padding:20px; text-align:center;">
-<button class="btn" onclick="checkout()">Checkout via WhatsApp</button>
+<p>Premium Online Phone Store</p>
+</header><div id="cart" class="cart">Cart: 0 items</div><input type="text" id="search" class="search" placeholder="Search phones..." onkeyup="searchPhones()"><div class="container"><!-- iPhones --><div class="card"><img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg"><h3>iPhone 11</h3><p>GHS 2500</p><button class="btn" onclick="addToCart('iPhone 11',2500)">Add to Cart</button></div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12.jpg"><h3>iPhone 12</h3><p>GHS 3200</p><button class="btn" onclick="addToCart('iPhone 12',3200)">Add to Cart</button></div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg"><h3>iPhone 13</h3><p>GHS 4500</p><button class="btn" onclick="addToCart('iPhone 13',4500)">Add to Cart</button></div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14.jpg"><h3>iPhone 14</h3><p>GHS 5200</p><button class="btn" onclick="addToCart('iPhone 14',5200)">Add to Cart</button></div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15.jpg"><h3>iPhone 15</h3><p>GHS 6500</p><button class="btn" onclick="addToCart('iPhone 15',6500)">Add to Cart</button></div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro.jpg"><h3>iPhone 15 Pro</h3><p>GHS 8200</p><button class="btn" onclick="addToCart('iPhone 15 Pro',8200)">Add to Cart</button></div><!-- Samsung A Series --><div class="card"><img src="https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a14.jpg"><h3>Samsung A14</h3><p>GHS 1800</p><button class="btn" onclick="addToCart('Samsung A14',1800)">Add to Cart</button></div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a24.jpg"><h3>Samsung A24</h3><p>GHS 2100</p><button class="btn" onclick="addToCart('Samsung A24',2100)">Add to Cart</button></div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a34.jpg"><h3>Samsung A34</h3><p>GHS 2600</p><button class="btn" onclick="addToCart('Samsung A34',2600)">Add to Cart</button></div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a54.jpg"><h3>Samsung A54</h3><p>GHS 3200</p><button class="btn" onclick="addToCart('Samsung A54',3200)">Add to Cart</button></div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a73-5g.jpg"><h3>Samsung A73</h3><p>GHS 3800</p><button class="btn" onclick="addToCart('Samsung A73',3800)">Add to Cart</button></div></div><div style="text-align:center; padding:20px;">
+<button class="btn checkout" onclick="checkout()">Checkout via WhatsApp</button>
 </div></body>
 </html>
